@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FutureNext</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-container">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <nav>
+        <ul>
+          <li>
+            <img src="img/LogoComNome.png" height="100px" width="100px" alt="Logo Simples" class="logo-simples" />
+            <a href="#inicio">Início</a>
+          </li>
+          <li><a href="#destaques">Destaques</a></li>
+          <li><a href="#cadastro">Cadastro</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- BLOCO 1 - INÍCIO -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-text">
+        <h1>Seja Next. Seja Future.</h1>
+        <p>Na FutureNext, acreditamos que o futuro pertence a quem ousa inovar. 
+          Impulsionamos startups com ideias visionárias, conectando criatividade a oportunidades reais de crescimento.</p>
+      </div>
+      <div class="logo-full"> 
+        <img src="img/LogoComNome.png" height="350px" width="650px" alt="Logo Fut  ureNext" />
+      </div>
+    </section>
+
+    <!-- BLOCO 2 - DESTAQUES -->
+    <section id="destaques" class="highlight-section">
+      <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+      <div class="cards-container" id="card-container"></div>
+      <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+    </section>
+
+    <!-- BLOCO 3 - CADASTRO -->
+    <section id="cadastro" class="form-section">
+      <h2>Cadastre sua Startup</h2>
+      <form>
+        <input type="text" placeholder="Nome do Autor (CEO)" required />
+        <input type="text" placeholder="Nome da Startup" required />
+        <select required>
+          <option value="">Categoria</option>
+          <option>Saúde</option>
+          <option>Educação</option>
+          <option>Energia</option>
+          <option>Tecnologia</option>
+          <option>Transporte</option>
+        </select>
+        <textarea placeholder="Problema resolvido" required></textarea>
+        <textarea placeholder="Solução proposta" required></textarea>
+        <textarea placeholder="Diferencial" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
