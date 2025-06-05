@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato - FutureNext</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><img src="img/LogoComNome.png" height="100px" width="100px" alt="Logo FutureNext" class="logo-simples" /></li>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="contato.html" class="active">Contato</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <div class="contato-info">
+      <h2>Entre em Contato com a FutureNext</h2>
+      <p>Tem dúvidas, sugestões ou quer colaborar com a nossa plataforma? Fale com a gente!</p>
+      <p><strong>Email:</strong> suporte@futurenext.com</p>
+      <p><strong>Telefone:</strong> (11) 94002-8922</p>
+      <p>
+        <strong>Redes sociais:</strong><br>
+        <a href="https://www.instagram.com/">Instagram</a> | <a href="https://museudememes.com.br/collection/cadeiradadodatena">LinkedIn</a> | <a href="https://museudememes.com.br/collection/drips-das-enchentes">Twitter</a>
+      </p>
+    </div>
+
+    <form onsubmit="return enviarFormulario();">
+      <input type="text" placeholder="Seu nome" name="nome" required />
+      <input type="email" placeholder="Seu e-mail" name="email" required />
+      <input type="text" placeholder="Assunto" name="assunto" required />
+      <textarea placeholder="Digite sua mensagem..." name="mensagem" rows="5" required></textarea>
+      <button type="submit">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <script>
+    function enviarFormulario() {
+      alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+      return false; // Evita o reload da página após envio fictício
+    }
+  </script>
+</body>
+</html>
