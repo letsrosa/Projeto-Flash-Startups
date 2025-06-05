@@ -1,3 +1,4 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
   color: #000000e3;
 }
 
-/*navegação*/
+/* NAVEGAÇÃO */
 .navbar {
   background-color: #197A63;
   padding: 1rem 2rem;
@@ -32,18 +33,26 @@ body {
   font-weight: bold;
 }
 
+.navbar a.active {
+  color: #ffffff;
+  background-color: #14594B;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
 .logo-simples {
   height: 100px;
   margin-right: 0.1rem;
   vertical-align: middle;
 }
 
-/*bloco1*/
+/* BLOCO 1 - INÍCIO */
 .hero-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 23%;
+  padding: 3rem 27%;
   background-color: #197A63;
 }
 
@@ -54,18 +63,21 @@ body {
 .hero-text h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .hero-text p {
   font-size: 1.2rem;
   line-height: 1.6;
+  color: white;
 }
 
 .logo-full img {
-  width: 280px;
+  width: 480px;
+  height: 480px;
 }
 
-/*cards view*/
+/* DESTAQUES */
 .highlight-section {
   background-color: #ffebc2;
   padding: 3rem 2rem;
@@ -122,37 +134,123 @@ body {
   border-radius: 6px;
 }
 
+.card-btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #197A63;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
+.card-btn:hover {
+  background-color: #22b5d1;
+}
+
+/* FORMULÁRIO GERAL */
 .form-section {
   background-color: #ffffff;
-  padding: 3rem 2rem;
+  padding: 4rem 15%;
+  text-align: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: auto;
+  margin: 2rem auto;
   gap: 1rem;
 }
 
 form input, form select, form textarea {
-  padding: 0.8rem;
-  border: 1px solid #14594B;
-  border-radius: 4px;
+  padding: 1rem;
+  border: 2px solid #197A63;
+  border-radius: 10px;
   font-size: 1rem;
+  width: 100%;
 }
 
 form button {
   background-color: #14594B;
   color: white;
-  padding: 0.8rem;
+  padding: 0.9rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 40px;
   font-size: 1rem;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 form button:hover {
   background-color: #22b5d1;
+}
+
+/* BLOCO EXTRA PARA CONTATO */
+.contato-info {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.contato-info h2 {
+  font-size: 2rem;
+  color: #14594B;
+  margin-bottom: 1rem;
+}
+
+.contato-info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+/* SEÇÃO SOBRE */
+.sobre-section {
+  padding: 4rem 15%;
+  background-color: #ffffff;
+  color: #222;
+  line-height: 1.8;
+  text-align: left; /* <-- alinhamento à esquerda */
+}
+
+.sobre-section h1,
+.sobre-section h2,
+.sobre-section h3 {
+  color: #14594B;
+  margin-bottom: 1rem;
+}
+
+.sobre-section p,
+.sobre-section ul {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sobre-section ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+/* LINKS */
+a {
+  color: #197A63;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.form-section textarea {
+  resize: vertical;
+}
+
+.navbar a:hover {
+  background-color: #ffffff20; /* leve fundo branco transparente */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra ao redor */
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
