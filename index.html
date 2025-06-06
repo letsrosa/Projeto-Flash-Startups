@@ -5,20 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FutureNext</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="img/LOGO.png" type="image/x-icon">
+
+  <style>
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <div class="site-container">
     <!-- NAVBAR -->
     <header class="navbar">
       <nav>
-  <ul>
-    <li><img src="img/LogoComNome.png" height="100px" width="100px" alt="Logo Simples" class="logo-simples" /></li>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="contato.html">Contato</a></li>
-    <li><a href="sobre.html">Sobre</a></li> <!-- Novo item -->
-  </ul>
-</nav>
-
+        <ul>
+          <li><img src="img/LogoComNome.png" height="100px" width="100px" alt="Logo Simples" class="logo-simples" /></li>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- BLOCO 1 - INÍCIO -->
@@ -29,7 +59,7 @@
           Impulsionamos startups com ideias visionárias, conectando criatividade a oportunidades reais de crescimento.</p>
       </div>
       <div class="logo-full"> 
-        <img src="img/LogoComNome.png" height="350px" width="650px" alt="Logo Fut  ureNext" />
+        <img src="img/LogoComNome.png" height="350px" width="650px" alt="Logo FutureNext" />
       </div>
     </section>
 
@@ -42,8 +72,8 @@
 
     <!-- BLOCO 3 - CADASTRO -->
     <section id="CADASTRO" class="form-section">
-      <h2>CADASTRE SUA STARTUP </h2>
-      <form>
+      <h2>CADASTRE SUA STARTUP</h2>
+      <form id="cadastroForm">
         <input type="text" placeholder="Nome do Autor (CEO)" required />
         <input type="text" placeholder="Nome da Startup" required />
         <select required>
@@ -61,6 +91,30 @@
       </form>
     </section>
   </div>
+
+  <!-- POPUP MODAL -->
+  <div id="modalPopup" class="modal">
+    <div class="modal-content">
+      <h3>Startup cadastrada com sucesso!</h3>
+      <p>Seja bem-vindo à FutureNext. Entraremos em contato em breve.</p>
+    </div>
+  </div>
+
+  <!-- SCRIPT DO MODAL -->
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita envio do formulário
+
+      const modal = document.getElementById("modalPopup");
+      modal.style.display = "flex";
+
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 10000); // Fecha após 10 segundos
+
+      this.reset(); // Limpa os campos
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
