@@ -53,16 +53,18 @@ body {
   justify-content: center;
   align-items: center;
   padding: 3rem 27%;
-  background-color: #197A63;
+ background-image: linear-gradient(#197A63, #ffebc2);
 }
-
+  
 .hero-text {
   max-width: 50%;
 }
 
 .hero-text h1 {
   font-size: 2.5rem;
+  text-shadow: 2px 2px;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px #ffebc2;
   color: white;
 }
 
@@ -97,7 +99,7 @@ body {
 .arrow {
   cursor: pointer;
   font-size: 2rem;
-  color: #ccc;
+  color: #d3d3d3;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -106,7 +108,7 @@ body {
 }
 
 .arrow:hover {
-  color: #555;
+  color: #197A63;
 }
 
 .arrow.left {
@@ -151,8 +153,37 @@ body {
 }
 
 /* FORMULÁRIO GERAL */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* fundo escurecido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
 .form-section {
-  background-color: #ffffff;
+  background-image: linear-gradient(#ffebc2, #ffffff);
   padding: 4rem 15%;
   text-align: center;
 }
@@ -197,7 +228,7 @@ form button:hover {
 
 .contato-info h2 {
   font-size: 2rem;
-  color: #14594B;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
@@ -209,7 +240,7 @@ form button:hover {
 /* SEÇÃO SOBRE */
 .sobre-section {
   padding: 4rem 15%;
-  background-color: #ffffff;
+  background-image: linear-gradient(#197A63, #ffebc2);
   color: #222;
   line-height: 1.8;
   text-align: left; /* <-- alinhamento à esquerda */
@@ -218,7 +249,7 @@ form button:hover {
 .sobre-section h1,
 .sobre-section h2,
 .sobre-section h3 {
-  color: #14594B;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
