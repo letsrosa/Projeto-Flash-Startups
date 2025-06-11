@@ -1,3 +1,4 @@
+
 /* RESET */
 * {
   margin: 0;
@@ -285,3 +286,22 @@ a:hover {
   border-radius: 5px;
   transition: all 0.3s ease;
 }
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #14594B;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 40px;
+  }
+
+  .form-section label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .form-section input[type="file"] {
+    margin-bottom: 15px;
+  }
