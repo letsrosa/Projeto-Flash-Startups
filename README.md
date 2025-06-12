@@ -2,20 +2,23 @@
 
 FutureNext é uma plataforma futurista para apresentar e conectar startups inovadoras com o mundo. Com um visual moderno e foco em tecnologia e impacto social, a plataforma foi criada com HTML, CSS e JavaScript puro.
 
-🚀 Visão Geral
+## 🚀 Visão Geral
 O futuro é agora!
 FutureNext oferece um espaço onde startups de ponta podem se cadastrar e ganhar visibilidade em um ambiente totalmente digital, com um design arrojado, navegação simples e foco em inovação.
 
-🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 Linguagem/Tool	Descrição
 🌐 HTML5	Estrutura da página
 🎨 CSS3	Estilização futurista e responsiva
 ⚙️ JavaScript (vanilla)	Interações e comportamentos da página
 
-📁 Estrutura do Projeto
+## 📁 Estrutura do Projeto
 bash
+
 Copiar
+
 Editar
+
 futurenext/
 │
 ├── index.html           # Página principal (Início)
@@ -31,7 +34,8 @@ futurenext/
 └── assets/
     ├── images/          # Logos, ícones e fundos
     └── icons/           # Ícones futuristas
-✨ Funcionalidades
+
+## ✨ Funcionalidades
 ✅ Interface com tema futurista
 
 ✅ Cadastro e destaque de startups (manual/estático)
@@ -42,19 +46,19 @@ futurenext/
 
 ✅ Navegação fluida entre seções
 
-📸 Preview
-🖥️ Desktop
+## 📸 Preview
+### 🖥️ Desktop
 
-📱 Mobile
+### 📱 Mobile
 
-📬 Contato
+## 📬 Contato
 Você pode contribuir, sugerir melhorias ou reportar bugs:
 
-📧 corretormarlosgomes@gmail.com
-🔗 LinkedIn
-💻 Projeto feito por @DEVMarlosGomes - @Letsrosa - @Leonardo22sp - @Matheus-Rodd - @rfamiglietti
+## 📧 corretormarlosgomes@gmail.com
+## 🔗 LinkedIn https://www.linkedin.com/in/marlos-gomes/
+# 💻 Projeto feito por @DEVMarlosGomes - @Letsrosa - @Leonardo22sp - @Matheus-Rodd - @rfamiglietti
 
-💡 Contribuindo
+## 💡 Contribuindo
 Faça um fork 🍴
 
 Crie sua branch: git checkout -b feature/novarecurso
@@ -65,5 +69,5 @@ Push: git push origin feature/novarecurso
 
 Abra um Pull Request 🚀
 
-📄 Licença
-MIT License © 2025 Marlos Gomes - Leticia Rosa - Matheus Rodrigues - Rômulo Famiglietti - Leonardo Silva
+## 📄 Licença
+### MIT License © 2025 Marlos Gomes - Leticia Rosa - Matheus Rodrigues - Rômulo Famiglietti - Leonardo Silva
