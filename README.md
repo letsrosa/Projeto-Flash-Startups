@@ -47,16 +47,16 @@ futurenext/
 ✅ Navegação fluida entre seções
 
 ## 📸 Preview
-### 🖥️ Desktop
+#### 🖥️ Desktop
 
-### 📱 Mobile
+#### 📱 Mobile
 
 ## 📬 Contato
 Você pode contribuir, sugerir melhorias ou reportar bugs:
 
-## 📧 corretormarlosgomes@gmail.com
-## 🔗 LinkedIn https://www.linkedin.com/in/marlos-gomes/
-# 💻 Projeto feito por @DEVMarlosGomes - @Letsrosa - @Leonardo22sp - @Matheus-Rodd - @rfamiglietti
+### 📧 corretormarlosgomes@gmail.com
+### 🔗 LinkedIn https://www.linkedin.com/in/marlos-gomes/
+### 💻 Projeto feito por @DEVMarlosGomes - @Letsrosa - @Leonardo22sp - @Matheus-Rodd - @rfamiglietti
 
 ## 💡 Contribuindo
 Faça um fork 🍴
