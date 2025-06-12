@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FutureNext</title>
+  <link rel="stylesheet" href="C:\Users\BlueShift\OneDrive - BlueShift Brasil\Documentos\flask\Projeto-Flash-Startups\style.css" />
+  <link rel="shortcut icon" href="/Projeto-Flash-Startups/img/LOGO.png" type="image/x-icon">
+
+  <style>
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="site-container">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <nav>
+        <ul>
+          <li><img src="img/LogoComNome.png" height="100px" width="100px" alt="Logo Simples" class="logo-simples" /></li>
+          <li><a href="Projeto-Flash-Startups\templates\index.html" class="active">Início</a></li>
+          <li><a href="Projeto-Flash-Startups\templates\contato.html">Contato</a></li>
+          <li><a href="Projeto-Flash-Startups\templates\sobre.html">Sobre</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- BLOCO 1 - INÍCIO -->
+    <section id="INICIO" class="hero-section">
+      <div class="hero-text">
+        <h1>Seja Next. Seja Future.</h1>
+        <p>Na FutureNext, acreditamos que o futuro pertence a quem ousa inovar. 
+          Impulsionamos startups com ideias visionárias, conectando criatividade a oportunidades reais de crescimento.</p>
+      </div>
+      <div class="logo-full"> 
+        <img src="img/LogoComNome.png" height="350px" width="650px" alt="Logo FutureNext" />
+      </div>
+    </section>
+
+    <!-- BLOCO 2 - DESTAQUES -->
+    <section id="STARTUPS" class="highlight-section">
+      <div class="arrow left" onclick="prevSlide()">&#10094;</div>
+      <div class="cards-container" id="card-container"></div>
+      <div class="arrow right" onclick="nextSlide()">&#10095;</div>
+    </section>
+
+    <!-- BLOCO 3 - CADASTRO -->
+    <section id="CADASTRO" class="form-section">
+      <h2>CADASTRE SUA IDEIA (Startup)</h2>
+      <form id="cadastroForm">
+        <input type="text" placeholder="Nome do Autor (CEO)" name="nomeAutor" required />
+        <input type="email" placeholder="Email do Autor" name="emailUsuario" required /> {# Adicione este campo para o email do usuário #}
+        <input type="text" placeholder="Título da Ideia (Nome da Startup)" name="titulo" required />
+        <select name="categoria" required>
+          <option value="">Categoria</option>
+          <option value="Saúde">Saúde</option>
+          <option value="Educação">Educação</option>
+          <option value="Energia">Energia</option>
+          <option value="Tecnologia">Tecnologia</option>
+          <option value="Transporte">Transporte</option>
+          </select>
+        <textarea placeholder="Problema resolvido" name="problemaResolvido" required></textarea>
+        <textarea placeholder="Solução proposta" name="solucaoProposta" required></textarea>
+        <textarea placeholder="Diferencial" name="diferencial" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+    
+    <script>
+      document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita envio do formulário padrão
+    
+        const formData = new FormData(this);
+        const data = {};
+        for (const [key, value] of formData.entries()) {
+          data[key] = value;
+        }
+    
+        // Mude o endpoint para /cadastrar_ideia
+        fetch('/cadastrar_ideia', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(result => {
+          const modal = document.getElementById("modalPopup");
+          const modalTitle = document.getElementById("modalTitle");
+          const modalMessage = document.getElementById("modalMessage");
+    
+          if (result.success) {
+            modalTitle.textContent = "Sucesso!";
+            modalMessage.textContent = result.message;
+            this.reset(); // Limpa os campos
+          } else {
+            modalTitle.textContent = "Erro!";
+            modalMessage.textContent = result.message;
+          }
+          modal.style.display = "flex";
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 5000); // Fecha após 5 segundos
+        })
+        .catch(error => {
+          const modal = document.getElementById("modalPopup");
+          const modalTitle = document.getElementById("modalTitle");
+          const modalMessage = document.getElementById("modalMessage");
+          modalTitle.textContent = "Erro de Conexão!";
+          modalMessage.textContent = "Não foi possível conectar ao servidor. Verifique suas credenciais e conexão ao SQL Server.";
+          modal.style.display = "flex";
+          setTimeout(() => {
+            modal.style.display = "none";
+          }, 5000); // Fecha após 5 segundos
+          console.error('Erro:', error);
+        });
+      });
+    </script>
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div id="modalPopup" class="modal">
+    <div class="modal-content">
+      <h3>Startup cadastrada com sucesso!</h3>
+      <p>Seja bem-vindo à FutureNext. Entraremos em contato em breve.</p>
+    </div>
+  </div>
+
+  <!-- SCRIPT DO MODAL -->
+  <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita envio do formulário
+
+      const modal = document.getElementById("modalPopup");
+      modal.style.display = "flex";
+
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 10000); // Fecha após 10 segundos
+
+      this.reset(); // Limpa os campos
+    });
+  </script>
+
+  <script src="/Projeto-Flash-Startups/script.js"></script>
+</body>
+</html>
