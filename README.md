@@ -1,4 +1,4 @@
-🌟 FutureNext – Plataforma de Startups Inovadoras
+# 🌟 FutureNext – Plataforma de Startups Inovadoras
 
 FutureNext é uma plataforma futurista para apresentar e conectar startups inovadoras com o mundo. Com um visual moderno e foco em tecnologia e impacto social, a plataforma foi criada com HTML, CSS e JavaScript puro.
 
