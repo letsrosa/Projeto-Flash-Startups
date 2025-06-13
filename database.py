@@ -19,6 +19,10 @@ class Contatos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
+    assunto = db.Column(db.String(150), unique=True, nullable=False)
+    mensagem = db.Column(db.String(150), unique=True, nullable=False)
+
+
     
     def __repr__(self):
         return f'<Contatos {self.email}>'

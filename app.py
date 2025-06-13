@@ -50,6 +50,8 @@ def contatos():
         novo_contato = Contatos(
             nome=nome,
             email=email,
+            assunto=assunto,
+            mensagem=mensagem
         )
         try:
             db.session.add(novo_contato)
