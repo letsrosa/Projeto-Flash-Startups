@@ -42,58 +42,37 @@ def cadastrar_ideia():
     if request.method == 'POST':
         data = request.get_json()
 
-        # Os campos do formulário HTML precisarão corresponder a esses nomes
-        # Você pode precisar mapear o "Nome do Autor (CEO)" para um Usuario existente
-        # ou criar um novo Usuario se ele não existir.
-        # Por simplicidade, vamos assumir que o formulário envia o id_usuario e o id_categoria
-        # ou informações que permitam buscar esses IDs.
-
-        # Para este exemplo, vamos assumir que o formulário envia:
-        # 'titulo' (Nome da Startup)
-        # 'descricao' (Problema resolvido + Solução proposta + Diferencial)
-        # 'nome_usuario' (Nome do Autor/CEO)
-        # 'email_usuario' (Email do Autor/CEO) - para buscar/criar o usuário
-        # 'categoria_nome' (Nome da Categoria) - para buscar/criar a categoria
-
-        titulo = data.get('titulo') # Mapeia de 'Nome da Startup'
+        titulo = data.get('titulo') 
         descricao_problema = data.get('problemaResolvido')
         descricao_solucao = data.get('solucaoProposta')
         descricao_diferencial = data.get('diferencial')
         descricao_completa = f"Problema: {descricao_problema}\nSolução: {descricao_solucao}\nDiferencial: {descricao_diferencial}"
 
-        nome_usuario = data.get('nomeAutor') # Mapeia de 'Nome do Autor (CEO)'
-        # Para este exemplo, vamos assumir um email de usuário padrão ou que o email seja enviado no formulário
-        email_usuario = data.get('emailUsuario', f"{nome_usuario.replace(' ', '').lower()}@example.com") # Adicione um campo para email no HTML se quiser ser mais preciso
+        nome_usuario = data.get('nomeAutor') 
+        email_usuario = data.get('emailUsuario', f"{nome_usuario.replace(' ', '').lower()}@example.com") 
+        categoria_nome = data.get('categoria') 
 
-        categoria_nome = data.get('categoria') # Mapeia de 'Categoria'
-
-        # --- Validação e Busca/Criação de Categoria e Usuário ---
         if not all([titulo, descricao_problema, descricao_solucao, descricao_diferencial, nome_usuario, categoria_nome]):
             return jsonify({'success': False, 'message': 'Todos os campos são obrigatórios!'}), 400
 
-        # Buscar ou criar Categoria
         categoria = Categoria.query.filter_by(nome=categoria_nome).first()
         if not categoria:
-            # Se a categoria não existir, crie-a. Você pode adicionar mais detalhes aqui.
             categoria = Categoria(nome=categoria_nome, descricao=f"Categoria de {categoria_nome}")
             db.session.add(categoria)
-            db.session.commit() # Commit para que a categoria tenha um id_categoria
+            db.session.commit() 
 
-        # Buscar ou criar Usuário
         usuario = Usuario.query.filter_by(email=email_usuario).first()
         if not usuario:
-            # Se o usuário não existir, crie-o. Senha fictícia para exemplo.
-            # Em um cenário real, o usuário se registraria com uma senha.
             usuario = Usuario(nome=nome_usuario, email=email_usuario, senha="senha_temporaria_hash")
             db.session.add(usuario)
-            db.session.commit() # Commit para que o usuário tenha um id_usuario
+            db.session.commit() 
 
         nova_ideia = Ideia(
             titulo=titulo,
             descricao=descricao_completa,
             id_categoria=categoria.id_categoria,
             id_usuario=usuario.id_usuario,
-            data_criacao=datetime.utcnow() # Use datetime.utcnow() para SQL Server
+            data_criacao=datetime.utcnow() 
         )
         try:
             db.session.add(nova_ideia)
@@ -105,31 +84,3 @@ def cadastrar_ideia():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html')  
-
-# @app.route('/enviar', methods=['POST'])
-# def enviar():
-#     nome = request.form['nome']
-#     email = request.form['email']
-
-#     try:
-#         conn = pyodbc.connect(conn_str)
-#         cursor = conn.cursor()
-#         cursor.execute("INSERT INTO Contatos (nome, email) VALUES (?, ?)", (nome, email))
-#         conn.commit()
-#         cursor.close()
-#         conn.close()
-#         return f"<h2>Dados salvos com sucesso!</h2><a href='/'>Voltar</a>"
-
-#     except Exception as e:
-#         return f"<h2>Erro ao salvar no banco:</h2><pre>{e}</pre>"
-# if __name__ == '__main__':
-#     app.run(debug=True)
-

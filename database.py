@@ -30,7 +30,7 @@ class Usuario(db.Model):
         return f'<Usuario {self.nome}>'
 
 class Ideia(db.Model):
-    __tablename__ = 'Ideia'
+    __tablename__ = 'ideia'
     id_ideia = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(150), nullable=False)
     descricao = db.Column(db.Text, nullable=False)
