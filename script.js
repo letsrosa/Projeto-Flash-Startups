@@ -18,40 +18,40 @@ const startups = [
     link: "https://www.igreenenergy.com.br/"
   },
   {
-    nome: "AquaSmart",
-    resumo: "Sensores para economizar água urbana.",
-    imagem: "img/aquasmart.png",
-    link: "https://www.aquasmart.com"
+    nome: "Blip",
+    resumo: "Crie boas conversas em qualquer canal com a melhor plataforma de IA para atendimento automatizado.",
+    imagem: "img/blip.jpeg",
+    link: "https://www.digital.blip.ai/"
   },
   {
-    nome: "JobLink",
-    resumo: "Conecta jovens talentos com startups.",
-    imagem: "img/joblink.png",
+    nome: "Financeiramente",
+    resumo: "Conecta sua mente as finanças e te tira do Vermelho.",
+    imagem: "img/FinanceiraMente.png",
     link: "https://www.joblink.com"
   },
   {
-    nome: "TranspAI",
-    resumo: "IA para otimizar rotas de transporte público.",
-    imagem: "img/transpai.png",
-    link: "https://www.transpai.com"
+    nome: "NotCo",
+    resumo: "Quando descobrimos que havia uma maneira de deixar a comida que amamos ainda melhor, não perguntamos por quê, dissemos Why Not.",
+    imagem: "img/notco.png",
+    link: "https://notco.com/br/"
   },
   {
-    nome: "BioHackers",
-    resumo: "Wearables de saúde personalizados.",
-    imagem: "img/biohackers.png",
-    link: "https://www.biohackers.com"
+    nome: "",
+    resumo: "Wearables",
+    imagem: "img/",
+    link: "https://"
   },
   {
-    nome: "FoodTrace",
-    resumo: "Blockchain para rastreio de alimentos.",
-    imagem: "img/foodtrace.png",
-    link: "https://www.foodtrace.com"
+    nome: "",
+    resumo: "Blockchain.",
+    imagem: "img/",
+    link: "https://"
   },
   {
-    nome: "RescueBot",
-    resumo: "Drones autônomos para resgates.",
-    imagem: "img/rescuebot.png",
-    link: "https://www.rescuebot.com"
+    nome: "",
+    resumo: "Drones ",
+    imagem: "img/",
+    link: "https://"
   }
 ];
 
@@ -94,3 +94,4 @@ function prevSlide() {
 }
 
 document.addEventListener("DOMContentLoaded", renderCards);
+
