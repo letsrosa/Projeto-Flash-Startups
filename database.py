@@ -9,11 +9,19 @@ class Categoria(db.Model):
     nome = db.Column(db.String(100), nullable=False)
     descricao = db.Column(db.Text, nullable=True)
 
-    #relacionamento com ideia
     ideias = db.relationship('Ideia', backref='categoria', lazy=True)
 
     def __repr__(self):
         return f'<Categoria {self.nome}>'
+
+class Contatos(db.Model):
+    __tablename__='Contatos'
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(150), unique=True, nullable=False)
+    
+    def __repr__(self):
+        return f'<Contatos {self.email}>'
 
 class Usuario(db.Model):
     __tablename__ = 'Usuario' 
@@ -21,9 +29,8 @@ class Usuario(db.Model):
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     senha = db.Column(db.String(256), nullable=False)
-    data_registro = db.Column(db.DateTime, default=datetime.utcnow) # datetime.utcnow para SQL Server
+    data_registro = db.Column(db.DateTime, default=datetime.utcnow) 
 
-    #relacionamento com ideia
     ideias = db.relationship('Ideia', backref='usuario', lazy=True)
 
     def __repr__(self):
@@ -34,7 +41,7 @@ class Ideia(db.Model):
     id_ideia = db.Column(db.Integer, primary_key=True)
     titulo = db.Column(db.String(150), nullable=False)
     descricao = db.Column(db.Text, nullable=False)
-    data_criacao = db.Column(db.DateTime, default=datetime.utcnow) # datetime.utcnow para SQL Server
+    data_criacao = db.Column(db.DateTime, default=datetime.utcnow) 
 
     id_categoria = db.Column(db.Integer, db.ForeignKey('Categoria.id_categoria'), nullable=False)
     id_usuario = db.Column(db.Integer, db.ForeignKey('Usuario.id_usuario'), nullable=False)

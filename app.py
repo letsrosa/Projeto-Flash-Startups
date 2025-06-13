@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from database import db, Categoria, Usuario, Ideia # Importe os novos modelos
+from database import db, Categoria, Usuario, Ideia, Contatos # Importe os novos modelos
 import os
 from datetime import datetime
 import urllib.parse
@@ -14,7 +14,6 @@ DRIVER = 'ODBC Driver 17 for SQL Server'
 
 encoded_password = urllib.parse.quote_plus(PASSWORD)
 
-# Construa a string de conexão SQLAlchemy usando as variáveis definidas
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     f'mssql+pyodbc://{USERNAME}:{encoded_password}@{SERVER}/{DATABASE}?'
     f'driver={DRIVER}'
@@ -25,6 +24,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 @app.route('/')
+def sobre():
+    return render_template('sobre.html')
+
+@app.route('/index.html')
 def index():
     return render_template('index.html')
 
@@ -32,14 +35,32 @@ def index():
 def contato():
     return render_template('contato.html')
 
-@app.route('/sobre.html')
-def sobre():
-    return render_template('sobre.html')
+@app.route('/contatos', methods=['POST'])
+def contatos():
+        data = request.get_json()
 
-# rota para cadastrar uma ideia 
+        nome = data.get('nome') 
+        email = data.get('email')
+        assunto = data.get('assunto')
+        mensagem = data.get('mensagem')
+
+        if not all([nome, email, assunto, mensagem]):
+            return jsonify({'success': False, 'message': 'Todos os campos são obrigatórios!'}), 400
+        
+        novo_contato = Contatos(
+            nome=nome,
+            email=email,
+        )
+        try:
+            db.session.add(novo_contato)
+            db.session.commit()
+            return jsonify({'success': True, 'message': 'Contato Cadastrado com Sucesso'}), 200
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({'success': False, 'message': f'Erro ao cadastrar Contato: {str(e)}'}), 500
+
 @app.route('/cadastrar_ideia', methods=['POST'])
 def cadastrar_ideia():
-    if request.method == 'POST':
         data = request.get_json()
 
         titulo = data.get('titulo') 
